@@ -38,3 +38,7 @@ button.input-cpf{
   width: 300px;
   font-size: 1.3rem;
 }
+
+.cpf {
+  margin-top: 50px;
+}
