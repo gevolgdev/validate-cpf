@@ -23,36 +23,37 @@ const validateCPF = (cpf) => {
   };
   numbersToValidate.map(item => totalNumbersValidate += item);
   let restValidate = totalNumbersValidate % 11;
-
-  if(restValidate === 0 || restValidate === 1) verifyingDigit = 0;
+  
+  if(restValidate < 2) verifyingDigit = 0;
   else verifyingDigit = 11 - restValidate;
-
+  
   if(verifyingDigit != cpf[9]) {
-    console.log('Primeira verificação')
+    console.log('Falso - Primeira verificação');
     return false;
   }
   
   // second validate
-  for (let i = 0; i < 11; i++) {
+  for (let i = 0; i < 10; i++) {
     numbersToValidate2.push((ArrCPF[i] * validator2));
     validator2--;
   };
   numbersToValidate2.map(item => totalNumbersValidate2 += item);
   let restValidate2 = totalNumbersValidate2 % 11;
-
-  if(restValidate2 === 0 || restValidate2 === 1) verifyingDigit2 = 0;
+  
+  if(restValidate2 < 2) verifyingDigit2 = 0;
   else verifyingDigit2 = 11 - restValidate2;
   
   if(verifyingDigit2 != cpf[10]) {
-    console.log('Segunda verificação')
+    console.log('Falso - Segunda verificação');
     return false;
   };
 
+  console.log('Verdadeiro')
   return true;
 };
 
 const handleClick = () => {
   validateCPF(userCPF());
-  console.log(validateCPF(userCPF()))
+  inputCPF.value = '';
 };
 buttonValidate.addEventListener('click', handleClick);
