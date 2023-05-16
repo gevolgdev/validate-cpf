@@ -5,7 +5,25 @@ const buttonValidate = document.getElementById('validate-button');
 
 const userCPF = () => inputCPF.value;
 
+const renderMessage = (feedback = true) => {
+  cpfElement = document.createElement('div');
+  if(feedback) {
+    cpfElement.innerHTML = `<span>✅ CPF verdadeiro!</span>`;
+    cpfContainer.appendChild(cpfElement);
+  }
+  else {
+    cpfElement.innerHTML = `<span>❌ CPF inválido!</span>`;
+    cpfContainer.appendChild(cpfElement);
+  }
+  setTimeout(() => {
+    cpfContainer.innerHTML = '';
+  }, 4000);
+};
+
 const validateCPF = (cpf) => {
+
+  cpfContainer.innerHTML = '';
+
   let ArrCPF = cpf.split('');
   let validator = 10;
   let validator2 = 11;
@@ -28,7 +46,7 @@ const validateCPF = (cpf) => {
   else verifyingDigit = 11 - restValidate;
   
   if(verifyingDigit != cpf[9]) {
-    console.log('Falso - Primeira verificação');
+    renderMessage(false);
     return false;
   }
   
@@ -44,11 +62,11 @@ const validateCPF = (cpf) => {
   else verifyingDigit2 = 11 - restValidate2;
   
   if(verifyingDigit2 != cpf[10]) {
-    console.log('Falso - Segunda verificação');
+    renderMessage(false);
     return false;
   };
 
-  console.log('Verdadeiro')
+  renderMessage();
   return true;
 };
 
