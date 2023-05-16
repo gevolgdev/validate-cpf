@@ -20,6 +20,8 @@ Olá, o desafio do dia foi fazer um validador de CPF. Desáfio recomendado pelo 
     - Se forem diferentes, retorne falso.
 5. Se ambos os dígitos verificadores passarem nas verificações, retorne verdadeiro. Caso contrário, retorne falso.
 
+!['Imagem de demonstração'](./assets//img-demo.png)
+
 ## Resolução:
 
 #### 1. Receba o CPF como entrada
