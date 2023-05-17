@@ -8,11 +8,11 @@ const userCPF = () => inputCPF.value;
 const renderMessage = (feedback = true) => {
   cpfElement = document.createElement('div');
   if(feedback) {
-    cpfElement.innerHTML = `<span>✅ CPF verdadeiro!</span>`;
+    cpfElement.innerHTML = `<span>✅ CPF "${userCPF()}" verdadeiro!</span>`;
     cpfContainer.appendChild(cpfElement);
   }
   else {
-    cpfElement.innerHTML = `<span>❌ CPF inválido!</span>`;
+    cpfElement.innerHTML = `<span>❌ CPF "${userCPF()}" inválido!</span>`;
     cpfContainer.appendChild(cpfElement);
   }
   setTimeout(() => {
